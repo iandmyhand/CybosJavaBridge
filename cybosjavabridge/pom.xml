@@ -1,8 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.blackvelvet.cybos</groupId>
-  <artifactId>bridge</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <groupId>com.blackvelvet</groupId>
+  <artifactId>cybridge</artifactId>
+  <version>0.0.1</version>
+  <name>CybosJavaBridge</name>
+  <packaging>jar</packaging>
   
   <properties>
     <java-version>1.8</java-version>
@@ -44,5 +46,12 @@
       <version>${com4j.version}</version>
     </dependency>
   </dependencies>
+  
+  <build>
+  	<sourceDirectory>src/main/java</sourceDirectory>
+  	<outputDirectory>${project.basedir}/target/classes</outputDirectory>
+  	<testSourceDirectory>src/test/java</testSourceDirectory>
+  	<testOutputDirectory>${project.basedir}/target/test-classes</testOutputDirectory>
+  </build>
   
 </project>
