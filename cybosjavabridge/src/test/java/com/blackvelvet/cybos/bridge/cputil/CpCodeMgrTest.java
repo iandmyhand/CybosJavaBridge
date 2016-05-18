@@ -2,29 +2,39 @@ package com.blackvelvet.cybos.bridge.cputil;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Array;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com4j.Com4jObject;
-import com4j.Variant;
-
 public class CpCodeMgrTest {
-	
-	ICpCodeMgr cpCodeMgr;
+
+	ICpCodeMgr iCpCodeMgr;
+	CpCodeMgr cpCodeMgr;
 
 	@Before
 	public void setUp() throws Exception {
-		cpCodeMgr = ClassFactory.createCpCodeMgr();
+		if(null == iCpCodeMgr) iCpCodeMgr = ClassFactory.createCpCodeMgr();
+		if(null == cpCodeMgr) cpCodeMgr = new CpCodeMgr();
 	}
 
 	@Test
-	public void test() {
-		Object[] objs = (Object[])cpCodeMgr.getStockListByMarket(CPE_MARKET_KIND.CPC_MARKET_KOSPI);
-		System.out.println(objs[0].getClass().getSimpleName());
+	public void testIGetStockListByMarket() {
+		Object[] objs = (Object[]) iCpCodeMgr.getStockListByMarket(CPE_MARKET_KIND.CPC_MARKET_KOSPI);
+		assertEquals("String", objs[0].getClass().getSimpleName());
+		
+		assertTrue(0 < objs.length);
 		System.out.println(objs.length);
+		
+		assertEquals("A000020", (String)objs[0]);
 		System.out.println((String)objs[0]);
+	}
+
+	@Test
+	public void testGetStockListByMarket() {
+		List<String> codes = cpCodeMgr.getStockListByMarket(CPE_MARKET_KIND.CPC_MARKET_KOSPI);
+		assertTrue(0 < codes.size());		
+		assertEquals("A000020", codes.get(0));
 	}
 
 }

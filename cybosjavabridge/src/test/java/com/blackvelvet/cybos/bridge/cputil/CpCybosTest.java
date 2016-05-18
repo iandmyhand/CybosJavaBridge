@@ -15,7 +15,7 @@ public class CpCybosTest {
 	}
 
 	@Test
-	public void test() {
+	public void testIsConnect() {
 		assertEquals(1, cpCybos.isConnect());
 	}
 

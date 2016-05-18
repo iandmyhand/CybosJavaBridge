@@ -15,7 +15,14 @@
     <mockito.version>1.9.0</mockito.version>
     <junit.version>4.11</junit.version>
   	<jna.version>4.2.2</jna.version>
+  	
   	<com4j.version>2.1</com4j.version>
+  	
+    <!-- Collections Util versions -->
+    <lambdaj.version>2.3.3</lambdaj.version>
+    <guava.version>17.0</guava.version>
+    <cglib.version>2.2.2</cglib.version>
+    <commons-collections.version>3.2.2</commons-collections.version>
   </properties>
   
   <dependencies>
@@ -45,6 +52,35 @@
       <artifactId>com4j</artifactId>
       <version>${com4j.version}</version>
     </dependency>
+    
+    <!-- Collections Util -->
+    <dependency>
+        <groupId>com.googlecode.lambdaj</groupId>
+        <artifactId>lambdaj</artifactId>
+        <version>${lambdaj.version}</version>
+        <exclusions>
+            <exclusion>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>${cglib.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>commons-collections</groupId>
+        <artifactId>commons-collections</artifactId>
+        <version>${commons-collections.version}</version>
+    </dependency>
+       
   </dependencies>
   
   <build>
